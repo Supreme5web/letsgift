@@ -667,12 +667,12 @@ legend {
   }
 
   .hero {
-    min-height: 720px;
-    padding: 24px 18px;
+    min-height: 520px;        /* was 720px – reduces space */
+    padding: 24px 18px 18px;  /* was 24px 18px – smaller bottom padding */
   }
 
   .hero-copy {
-    padding-bottom: 90px;
+    padding-bottom: 30px;     /* was 90px – removes large gap below text */
   }
 
   .hero-copy p {
@@ -697,8 +697,7 @@ legend {
   .checkout-shell {
     padding-top: 56px;
   }
-}
-@media (max-width: 768px) {
+}@media (max-width: 768px) {
   /* Adjust main hero section padding */
   main > div:first-child,
   .flex.min-h-screen > div:first-child {
