@@ -667,12 +667,12 @@ legend {
   }
 
   .hero {
-    min-height: 520px;        /* was 720px – reduces space */
-    padding: 24px 18px 18px;  /* was 24px 18px – smaller bottom padding */
+    min-height: 460px;        /* adjusted from 520px */
+    padding: 20px 18px 12px;  /* tighter top, less bottom */
   }
 
   .hero-copy {
-    padding-bottom: 30px;     /* was 90px – removes large gap below text */
+    padding-bottom: 20px;     /* just enough space before the strip */
   }
 
   .hero-copy p {
@@ -681,7 +681,7 @@ legend {
 
   .creator-strip {
     width: calc(100% - 24px);
-    margin-top: -38px;
+    margin-top: -20px;        /* was -38px — reduces upward pull */
   }
 
   .wishlist-grid,
