@@ -698,3 +698,15 @@ legend {
     padding-top: 56px;
   }
 }
+@media (max-width: 768px) {
+  /* Adjust main hero section padding */
+  main > div:first-child,
+  .flex.min-h-screen > div:first-child {
+    padding-top: 1.5rem !important; /* reduces from ~5rem+ to 1.5rem */
+  }
+
+  /* If "Secure creator gifting" is inside a specific container */
+  .text-sm.font-medium.text-gray-500.mb-2 {
+    margin-top: 0 !important;
+  }
+}
