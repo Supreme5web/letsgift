@@ -3,25 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GiftNest — Her Wishlist</title>
-    <meta name="description" content="A curated wishlist of beautiful gifts. Choose a gift, leave a sweet note, and check out securely." />
+    <title>GiftNest — Celebrity Gifting Platform</title>
+    <meta name="description" content="Send a luxury gift to a celebrity or someone you admire. Curated selections, secure checkout, private delivery." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
 
-    <!-- ── TOPBAR ── -->
+    <!-- TOPBAR -->
     <header class="topbar">
       <a class="brand" href="#home" aria-label="GiftNest home">
         <span class="brand-mark">GN</span>
         <span>GiftNest</span>
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#celebrities">Celebrities</a>
         <a href="#wishlist">Wishlist</a>
-        <a href="#how">How it works</a>
         <a href="#checkout">Checkout</a>
       </nav>
       <button class="cart-button" type="button" data-open-cart aria-label="Open cart">
@@ -32,65 +31,85 @@
 
     <main id="home">
 
-      <!-- ── HERO ── -->
+      <!-- HERO -->
       <section class="hero">
         <div class="hero-media" aria-hidden="true"></div>
         <div class="hero-copy">
-          <p class="eyebrow">Secure creator gifting</p>
-          <h1>Spoil her with something <em>special.</em></h1>
+          <p class="eyebrow">Celebrity Gifting Platform</p>
+          <h1>Gift someone <em>legendary.</em></h1>
           <p>
-            A curated wishlist of beautiful gifts for the amazing women in your life.
-            Choose a gift, leave a sweet note, and check out securely.
+            Send a curated luxury gift to the celebrities and icons you admire.
+            Choose your recipient, select a gift, and we handle the rest — discreetly and securely.
           </p>
           <div class="hero-actions">
-            <a class="primary-link" href="#wishlist">Browse gifts</a>
+            <a class="primary-link" href="#celebrities">Choose a celebrity</a>
             <button class="secondary-link" type="button" data-open-cart>View cart</button>
           </div>
         </div>
       </section>
 
-      <!-- ── CREATOR STRIP ── -->
-      <section class="creator-strip" aria-label="Creator profile">
-        <img
-          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=320&q=80"
-          alt="Sophia — wishlist creator"
-          class="avatar"
-          loading="lazy"
-        />
-        <div>
-          <p class="profile-label">Featured wishlist</p>
-          <h2>Sophia's Picks</h2>
-          <p>Fashion lover, beauty enthusiast, and all things pink and pretty.</p>
-        </div>
-        <div class="trust-row" aria-label="Trust badges">
-          <span>✦ Verified creator</span>
-          <span>🔒 Secure checkout</span>
-          <span>⚡ E-gift in minutes</span>
+      <!-- CELEBRITY SELECTOR -->
+      <section class="celeb-section" id="celebrities" aria-label="Choose a celebrity">
+        <div class="celeb-section-inner">
+
+          <div class="celeb-header">
+            <div>
+              <p class="eyebrow">Step 1</p>
+              <h2>Who are you gifting?</h2>
+              <p class="celeb-sub">Select a celebrity below. Their wishlist will load automatically.</p>
+            </div>
+            <div class="celeb-search-wrap">
+              <input
+                type="search"
+                class="celeb-search"
+                placeholder="Search celebrities..."
+                aria-label="Search celebrities"
+                id="celebSearch"
+              />
+            </div>
+          </div>
+
+          <div class="celeb-grid" id="celebGrid" role="listbox" aria-label="Celebrity list">
+            <!-- JS rendered -->
+          </div>
+
+          <!-- Active celebrity profile strip -->
+          <div class="celeb-profile" id="celebProfile" aria-live="polite">
+            <div class="celeb-profile-inner">
+              <img src="" alt="" class="celeb-profile-avatar" id="celebProfileAvatar" />
+              <div class="celeb-profile-info">
+                <p class="profile-label" id="celebProfileLabel">Selected recipient</p>
+                <h2 id="celebProfileName"></h2>
+                <p id="celebProfileBio"></p>
+              </div>
+              <div class="trust-row">
+                <span>Verified Recipient</span>
+                <span>Secure Checkout</span>
+                <span>Fast Delivery</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      <!-- ── WISHLIST ── -->
+      <!-- WISHLIST -->
       <div class="section-heading" id="wishlist">
-        <p class="eyebrow">Her Wishlist</p>
-        <h2>Pick something she will actually love.</h2>
+        <p class="eyebrow">Step 2 — The Wishlist</p>
+        <h2 id="wishlistHeading">Select a celebrity to load their wishlist.</h2>
       </div>
 
       <section class="wishlist-grid" aria-label="Wishlist items">
 
-        <!-- Cash Gift -->
         <article class="gift-card">
           <div class="img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=760&q=80"
-              alt="Cash gift envelope with heart"
-              loading="lazy"
-            />
+            <img src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=760&q=80" alt="Gift envelope" loading="lazy" />
           </div>
           <div class="gift-body">
             <div>
               <p class="gift-tag">Cash Gift</p>
               <h3>Flexible Cash Gift</h3>
-              <p>Let her choose exactly what she wants. Perfect for any occasion.</p>
+              <p>Let them choose exactly what they want. The most thoughtful gift of all.</p>
             </div>
             <div class="gift-footer">
               <strong>$100</strong>
@@ -99,20 +118,15 @@
           </div>
         </article>
 
-        <!-- Designer Dress -->
         <article class="gift-card">
           <div class="img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=760&q=80"
-              alt="Elegant pink dress"
-              loading="lazy"
-            />
+            <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=760&q=80" alt="Elegant satin dress" loading="lazy" />
           </div>
           <div class="gift-body">
             <div>
               <p class="gift-tag">Fashion</p>
               <h3>Silk Satin Dress</h3>
-              <p>Elegant flowy dress perfect for date nights and special occasions.</p>
+              <p>Elegant and flowing — perfect for date nights and special occasions.</p>
             </div>
             <div class="gift-footer">
               <strong>$89</strong>
@@ -121,14 +135,9 @@
           </div>
         </article>
 
-        <!-- Makeup Kit -->
         <article class="gift-card">
           <div class="img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1596462502278-27bfdc4030e3?auto=format&fit=crop&w=760&q=80"
-              alt="Luxury makeup kit"
-              loading="lazy"
-            />
+            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc4030e3?auto=format&fit=crop&w=760&q=80" alt="Luxury makeup palette" loading="lazy" />
           </div>
           <div class="gift-body">
             <div>
@@ -143,20 +152,15 @@
           </div>
         </article>
 
-        <!-- Designer Shoes -->
         <article class="gift-card">
           <div class="img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=760&q=80"
-              alt="Elegant high heels"
-              loading="lazy"
-            />
+            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=760&q=80" alt="Designer heels" loading="lazy" />
           </div>
           <div class="gift-body">
             <div>
               <p class="gift-tag">Shoes</p>
               <h3>Designer Heels</h3>
-              <p>Classic pointed-toe heels that go with everything in her wardrobe.</p>
+              <p>Classic pointed-toe heels that pair with everything in the wardrobe.</p>
             </div>
             <div class="gift-footer">
               <strong>$120</strong>
@@ -165,20 +169,15 @@
           </div>
         </article>
 
-        <!-- Perfume -->
         <article class="gift-card">
           <div class="img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=760&q=80"
-              alt="Luxury perfume bottle"
-              loading="lazy"
-            />
+            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=760&q=80" alt="Luxury perfume bottle" loading="lazy" />
           </div>
           <div class="gift-body">
             <div>
               <p class="gift-tag">Fragrance</p>
               <h3>Luxury Perfume</h3>
-              <p>Long-lasting floral scent with notes of rose and vanilla.</p>
+              <p>Long-lasting floral scent with notes of rose, sandalwood, and vanilla.</p>
             </div>
             <div class="gift-footer">
               <strong>$95</strong>
@@ -187,20 +186,15 @@
           </div>
         </article>
 
-        <!-- Jewelry -->
         <article class="gift-card">
           <div class="img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=760&q=80"
-              alt="Gold necklace"
-              loading="lazy"
-            />
+            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=760&q=80" alt="Gold pendant necklace" loading="lazy" />
           </div>
           <div class="gift-body">
             <div>
               <p class="gift-tag">Jewelry</p>
               <h3>Gold Pendant Necklace</h3>
-              <p>Delicate 14k gold necklace with birthstone option included.</p>
+              <p>Delicate 14k gold necklace available with a birthstone option.</p>
             </div>
             <div class="gift-footer">
               <strong>$150</strong>
@@ -209,20 +203,15 @@
           </div>
         </article>
 
-        <!-- Skincare Set -->
         <article class="gift-card">
           <div class="img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1570194065650-d99fb4bef1be?auto=format&fit=crop&w=760&q=80"
-              alt="Luxury skincare products"
-              loading="lazy"
-            />
+            <img src="https://images.unsplash.com/photo-1570194065650-d99fb4bef1be?auto=format&fit=crop&w=760&q=80" alt="Luxury skincare products" loading="lazy" />
           </div>
           <div class="gift-body">
             <div>
               <p class="gift-tag">Skincare</p>
               <h3>Luxury Skincare Set</h3>
-              <p>Complete routine with cleanser, serum, moisturiser, and face masks.</p>
+              <p>Complete routine: cleanser, serum, moisturiser, and face masks included.</p>
             </div>
             <div class="gift-footer">
               <strong>$110</strong>
@@ -231,20 +220,15 @@
           </div>
         </article>
 
-        <!-- Handbag -->
         <article class="gift-card">
           <div class="img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=760&q=80"
-              alt="Designer handbag"
-              loading="lazy"
-            />
+            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=760&q=80" alt="Designer tote bag" loading="lazy" />
           </div>
           <div class="gift-body">
             <div>
               <p class="gift-tag">Accessories</p>
               <h3>Designer Tote Bag</h3>
-              <p>Spacious yet chic bag perfect for work days or weekend outings.</p>
+              <p>Spacious yet refined — ideal for workdays and weekend outings alike.</p>
             </div>
             <div class="gift-footer">
               <strong>$199</strong>
@@ -255,35 +239,35 @@
 
       </section>
 
-      <!-- ── SURPRISE BAND ── -->
+      <!-- SURPRISE BAND -->
       <section class="surprise-band" id="how">
         <div>
-          <p class="eyebrow">Surprise gift</p>
+          <p class="eyebrow">Flexible gift</p>
           <h2>Not sure what to choose?</h2>
-          <p>Send a flexible contribution and let her pick from her favourite things.</p>
+          <p>Send an open contribution and let them pick from the wishlist themselves.</p>
         </div>
         <form class="surprise-form" data-surprise-form>
           <label>
             Amount ($)
             <input type="number" min="5" step="5" value="50" data-surprise-amount />
           </label>
-          <button type="submit">Add surprise gift →</button>
+          <button type="submit">Add flexible gift</button>
         </form>
       </section>
 
-      <!-- ── CHECKOUT ── -->
+      <!-- CHECKOUT -->
       <section class="checkout-shell" id="checkout" aria-label="Checkout">
         <div class="checkout-copy">
-          <p class="eyebrow">Checkout</p>
-          <h2>Private payment,<br>secure delivery.</h2>
+          <p class="eyebrow">Step 3 — Checkout</p>
+          <h2>Private payment, secure delivery.</h2>
           <p>
-            Complete your gift purchase safely. Her address is never shared with you,
-            and your payment info is always protected.
+            Complete your purchase safely. The recipient's address is never shared,
+            and your payment details are fully protected at all times.
           </p>
           <ul>
-            <li>Gift notes can be anonymous or signed</li>
-            <li>Real-time order tracking</li>
-            <li>E-gift card delivery within minutes</li>
+            <li>Gift notes may be anonymous or personally signed</li>
+            <li>Real-time order tracking from purchase to delivery</li>
+            <li>E-gift card delivery within minutes of checkout</li>
           </ul>
         </div>
 
@@ -297,6 +281,7 @@
           <input type="text" name="_gotcha" style="display:none" />
           <input type="hidden" name="_subject" value="New GiftNest Order" />
           <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="celebrity" id="checkoutCelebrity" value="" />
 
           <div class="form-row">
             <label>
@@ -307,7 +292,7 @@
 
           <div class="form-row two">
             <label>
-              Card number
+              Card Number
               <input type="text" name="card_number" inputmode="numeric" placeholder="4242 4242 4242 4242" required />
             </label>
             <label>
@@ -322,14 +307,14 @@
               <input type="text" name="card_cvc" inputmode="numeric" placeholder="123" required />
             </label>
             <label>
-              ZIP / Postal code
+              ZIP / Postal Code
               <input type="text" name="postal_code" placeholder="10001" required />
             </label>
           </div>
 
           <div class="form-row">
             <label>
-              Email
+              Email Address
               <input type="email" name="buyer_email" placeholder="you@example.com" required />
             </label>
           </div>
@@ -343,22 +328,22 @@
             <div><span>Estimated total</span><strong data-total>$0.00</strong></div>
           </div>
 
-          <button class="pay-button" type="submit">Pay securely →</button>
-          <p class="payment-note">🔒 Encrypted & secure · Address never shared</p>
+          <button class="pay-button" type="submit">Pay securely</button>
+          <p class="payment-note">Encrypted and secure. Address never disclosed to sender.</p>
         </form>
       </section>
 
     </main>
 
-    <!-- ── CART DRAWER ── -->
+    <!-- CART DRAWER -->
     <aside class="cart-drawer" data-cart-drawer aria-hidden="true">
       <div class="cart-panel">
         <div class="cart-head">
           <div>
             <p class="eyebrow">Gift cart</p>
-            <h2>Your picks for her</h2>
+            <h2>Your selection</h2>
           </div>
-          <button class="icon-button" type="button" data-close-cart aria-label="Close cart">×</button>
+          <button class="icon-button" type="button" data-close-cart aria-label="Close cart">&#215;</button>
         </div>
         <div class="cart-items" data-cart-items>
           <p class="empty-cart">Your cart is waiting for a thoughtful gift.</p>
@@ -367,11 +352,12 @@
           <span>Total</span>
           <strong data-cart-total>$0.00</strong>
         </div>
-        <a class="checkout-link" href="#checkout" data-close-cart>Continue to checkout →</a>
+        <a class="checkout-link" href="#checkout" data-close-cart>Continue to checkout</a>
       </div>
     </aside>
 
     <div class="toast" data-toast role="status" aria-live="polite"></div>
     <script src="app.js"></script>
+    <script src="celebrities.js"></script>
   </body>
 </html>
