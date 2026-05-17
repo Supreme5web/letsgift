@@ -1,14 +1,16 @@
 (function () {
   'use strict';
 
-  /* ─── CELEBRITY DATA ─── */
+  /* ─── CELEBRITY DATA
+     photo: null = fetched live from Wikipedia API at runtime
+  ─── */
   const celebrities = [
     {
       id: 'kevin-costner',
       name: 'Kevin Costner',
       known: 'Actor & Director',
       bio: 'Oscar-winning filmmaker and actor. Known for Yellowstone, Dances with Wolves, and The Bodyguard.',
-      photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
+      wiki: 'Kevin_Costner',
       category: 'Actor',
     },
     {
@@ -16,7 +18,7 @@
       name: 'Simone Susinna',
       known: 'Model & Actor',
       bio: 'International model and rising screen talent. Known for 365 Days and his striking editorials worldwide.',
-      photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80',
+      wiki: 'Simone_Susinna',
       category: 'Model',
     },
     {
@@ -24,7 +26,7 @@
       name: 'Matt Rife',
       known: 'Comedian',
       bio: 'Stand-up comedian and social media sensation. His sold-out world tour redefined modern comedy.',
-      photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+      wiki: 'Matt_Rife',
       category: 'Comedian',
     },
     {
@@ -32,7 +34,7 @@
       name: 'Emma Watson',
       known: 'Actress & Activist',
       bio: 'Award-winning actress and UN Women Goodwill Ambassador. Celebrated for Harry Potter and Little Women.',
-      photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80',
+      wiki: 'Emma_Watson',
       category: 'Actress',
     },
     {
@@ -40,15 +42,15 @@
       name: 'Ed Sheeran',
       known: 'Singer & Songwriter',
       bio: 'Multi-Grammy-winning artist and one of the best-selling musicians of all time. Known for Shape of You and Perfect.',
-      photo: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=400&q=80',
+      wiki: 'Ed_Sheeran',
       category: 'Musician',
     },
     {
       id: 'zendaya',
       name: 'Zendaya',
       known: 'Actress & Fashion Icon',
-      bio: 'Emmy-winning actress and global style icon. Known for Euphoria, Dune, and her groundbreaking red carpet moments.',
-      photo: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=400&q=80',
+      bio: 'Emmy-winning actress and global style icon. Known for Euphoria, Dune, and her iconic red carpet moments.',
+      wiki: 'Zendaya',
       category: 'Actress',
     },
     {
@@ -56,7 +58,7 @@
       name: 'Ryan Reynolds',
       known: 'Actor & Entrepreneur',
       bio: 'Actor, producer, and business mogul behind Aviation Gin and Wrexham AFC. Known for Deadpool and Free Guy.',
-      photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80',
+      wiki: 'Ryan_Reynolds',
       category: 'Actor',
     },
     {
@@ -64,7 +66,7 @@
       name: 'Beyoncé',
       known: 'Singer & Cultural Icon',
       bio: 'The most awarded recording artist of all time. Artist, entrepreneur, and cultural force across generations.',
-      photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80',
+      wiki: 'Beyoncé',
       category: 'Musician',
     },
     {
@@ -72,7 +74,7 @@
       name: 'Tom Hardy',
       known: 'Actor',
       bio: 'Versatile British actor known for Venom, Mad Max: Fury Road, and his BAFTA-winning performance in Locke.',
-      photo: 'https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=400&q=80',
+      wiki: 'Tom_Hardy',
       category: 'Actor',
     },
     {
@@ -80,7 +82,7 @@
       name: 'Taylor Swift',
       known: 'Singer & Songwriter',
       bio: 'Record-breaking artist and cultural phenomenon. The Eras Tour became the highest-grossing concert tour in history.',
-      photo: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?auto=format&fit=crop&w=400&q=80',
+      wiki: 'Taylor_Swift',
       category: 'Musician',
     },
     {
@@ -88,7 +90,7 @@
       name: 'Idris Elba',
       known: 'Actor & DJ',
       bio: 'Golden Globe-winning actor and acclaimed DJ. Known for The Wire, Luther, and Beasts of No Nation.',
-      photo: 'https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?auto=format&fit=crop&w=400&q=80',
+      wiki: 'Idris_Elba',
       category: 'Actor',
     },
     {
@@ -96,10 +98,38 @@
       name: 'Priyanka Chopra',
       known: 'Actress & Producer',
       bio: 'Global icon and UNICEF Goodwill Ambassador. Known for Quantico, The Matrix Resurrections, and her humanitarian work.',
-      photo: 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?auto=format&fit=crop&w=400&q=80',
+      wiki: 'Priyanka_Chopra',
       category: 'Actress',
     },
   ];
+
+  /* ─── PHOTO CACHE ─── */
+  const photoCache = {};
+
+  /* ─── PLACEHOLDER while loading ─── */
+  const PLACEHOLDER = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='533' viewBox='0 0 400 533'%3E%3Crect width='400' height='533' fill='%23f0e8de'/%3E%3Crect x='140' y='120' width='120' height='120' rx='60' fill='%23d4c4b0'/%3E%3Crect x='80' y='280' width='240' height='160' rx='12' fill='%23d4c4b0'/%3E%3C/svg%3E`;
+
+  /* ─── FETCH PHOTO from Wikipedia REST API ─── */
+  async function fetchPhoto(celeb) {
+    if (photoCache[celeb.id]) return photoCache[celeb.id];
+
+    try {
+      const res = await fetch(
+        `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(celeb.wiki)}`,
+        { headers: { 'Accept': 'application/json' } }
+      );
+      if (!res.ok) throw new Error('not ok');
+      const data = await res.json();
+      const url = data?.thumbnail?.source || PLACEHOLDER;
+      // Bump to 400px wide for better quality
+      const hq = url.replace(/\/\d+px-/, '/400px-');
+      photoCache[celeb.id] = hq;
+      return hq;
+    } catch {
+      photoCache[celeb.id] = PLACEHOLDER;
+      return PLACEHOLDER;
+    }
+  }
 
   /* ─── CATEGORIES ─── */
   const categories = ['All', ...new Set(celebrities.map(c => c.category))];
@@ -110,22 +140,21 @@
   let searchQuery = '';
 
   /* ─── DOM REFS ─── */
-  const grid        = document.getElementById('celebGrid');
-  const profile     = document.getElementById('celebProfile');
-  const profileAvatar = document.getElementById('celebProfileAvatar');
-  const profileName   = document.getElementById('celebProfileName');
-  const profileBio    = document.getElementById('celebProfileBio');
-  const profileLabel  = document.getElementById('celebProfileLabel');
-  const wishlistHeading = document.getElementById('wishlistHeading');
+  const grid              = document.getElementById('celebGrid');
+  const profile           = document.getElementById('celebProfile');
+  const profileAvatar     = document.getElementById('celebProfileAvatar');
+  const profileName       = document.getElementById('celebProfileName');
+  const profileBio        = document.getElementById('celebProfileBio');
+  const profileLabel      = document.getElementById('celebProfileLabel');
+  const wishlistHeading   = document.getElementById('wishlistHeading');
   const checkoutCelebrity = document.getElementById('checkoutCelebrity');
-  const searchInput  = document.getElementById('celebSearch');
+  const searchInput       = document.getElementById('celebSearch');
 
-  /* ─── BUILD CATEGORY PILLS ─── */
+  /* ─── BUILD CATEGORY BAR ─── */
   function buildCategoryBar() {
     const bar = document.createElement('div');
     bar.className = 'celeb-cat-bar';
     bar.setAttribute('role', 'tablist');
-    bar.setAttribute('aria-label', 'Filter by category');
 
     categories.forEach(cat => {
       const btn = document.createElement('button');
@@ -145,7 +174,6 @@
       bar.appendChild(btn);
     });
 
-    // Insert before the grid
     grid.parentNode.insertBefore(bar, grid);
   }
 
@@ -154,7 +182,7 @@
     const query = searchQuery.toLowerCase().trim();
 
     const filtered = celebrities.filter(c => {
-      const matchesCat = activeCategory === 'All' || c.category === activeCategory;
+      const matchesCat   = activeCategory === 'All' || c.category === activeCategory;
       const matchesSearch = !query ||
         c.name.toLowerCase().includes(query) ||
         c.known.toLowerCase().includes(query) ||
@@ -180,12 +208,21 @@
       card.setAttribute('aria-selected', celeb.id === selectedId ? 'true' : 'false');
       card.setAttribute('data-celeb-id', celeb.id);
 
+      const cachedPhoto = photoCache[celeb.id] || PLACEHOLDER;
+
       card.innerHTML = `
         <div class="celeb-card-img-wrap">
-          <img src="${celeb.photo}" alt="${celeb.name}" loading="lazy" />
+          <img
+            src="${cachedPhoto}"
+            alt="${celeb.name}"
+            class="celeb-card-img"
+            data-celeb-img="${celeb.id}"
+            loading="lazy"
+          />
+          <div class="celeb-card-overlay" aria-hidden="true"></div>
           <div class="celeb-card-check" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+              <path d="M2 6.5L5 9.5L11 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
         </div>
@@ -198,40 +235,57 @@
 
       card.addEventListener('click', () => selectCeleb(celeb.id));
       grid.appendChild(card);
+
+      // Load real photo if not cached yet
+      if (!photoCache[celeb.id]) {
+        fetchPhoto(celeb).then(url => {
+          const img = grid.querySelector(`[data-celeb-img="${celeb.id}"]`);
+          if (img) img.src = url;
+          // Also update profile if this celeb is selected
+          if (selectedId === celeb.id) {
+            profileAvatar.src = url;
+          }
+        });
+      }
     });
   }
 
   /* ─── SELECT CELEBRITY ─── */
-  function selectCeleb(id) {
+  async function selectCeleb(id) {
     selectedId = id;
     const celeb = celebrities.find(c => c.id === id);
     if (!celeb) return;
 
-    // Update grid selections
+    // Update card states
     document.querySelectorAll('.celeb-card').forEach(card => {
       const isSelected = card.dataset.celebId === id;
       card.classList.toggle('is-selected', isSelected);
       card.setAttribute('aria-selected', isSelected ? 'true' : 'false');
     });
 
-    // Update profile strip
-    profileAvatar.src = celeb.photo;
+    // Show profile with placeholder first
+    const photo = photoCache[id] || PLACEHOLDER;
+    profileAvatar.src = photo;
     profileAvatar.alt = celeb.name;
     profileName.textContent = celeb.name;
     profileBio.textContent = celeb.bio;
     profileLabel.textContent = celeb.known;
     profile.classList.add('is-visible');
 
-    // Update wishlist heading
-    wishlistHeading.textContent = celeb.name + '\u2019s wishlist — choose a gift below.';
+    // If photo not loaded yet, fetch and update
+    if (!photoCache[id]) {
+      const url = await fetchPhoto(celeb);
+      profileAvatar.src = url;
+    }
 
-    // Pass celebrity name to checkout
+    // Update wishlist heading and checkout field
+    wishlistHeading.textContent = celeb.name + '\u2019s wishlist \u2014 choose a gift below.';
     checkoutCelebrity.value = celeb.name;
 
-    // Smooth scroll to wishlist
+    // Scroll to wishlist
     setTimeout(() => {
       document.getElementById('wishlist').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 180);
+    }, 200);
   }
 
   /* ─── SEARCH ─── */
@@ -243,5 +297,8 @@
   /* ─── INIT ─── */
   buildCategoryBar();
   renderGrid();
+
+  // Pre-fetch all photos in the background after render
+  celebrities.forEach(c => fetchPhoto(c));
 
 })();
