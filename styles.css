@@ -140,10 +140,9 @@ img { display: block; }
   z-index: -2;
   background:
     linear-gradient(155deg, rgba(10,8,6,0.88) 0%, rgba(10,8,6,0.52) 50%, rgba(10,8,6,0.18) 100%),
-    url("https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=1600&q=85") center / cover no-repeat;
+    url("https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1600&q=85") center / cover no-repeat;
 }
 
-/* fine grain overlay */
 .hero-media::after {
   content: '';
   position: absolute;
@@ -197,16 +196,11 @@ img { display: block; }
   flex-shrink: 0;
 }
 
-/* hero eyebrow override */
 .hero .eyebrow { color: #c9a86c; }
-
-/* non-hero eyebrows */
 .section-heading .eyebrow,
 .checkout-copy .eyebrow { color: var(--gold); }
-
 .surprise-band .eyebrow { color: #c9a86c; }
-
-.cart-panel .eyebrow { color: var(--gold); }
+.cart-panel .eyebrow    { color: var(--gold); }
 
 .profile-label {
   display: inline-flex;
@@ -228,7 +222,7 @@ img { display: block; }
   flex-shrink: 0;
 }
 
-/* ─── TYPE SCALE ─── */
+/* ─── TYPE ─── */
 h1 {
   font-family: var(--font-display);
   font-size: clamp(3.4rem, 8vw, 7.5rem);
@@ -237,10 +231,7 @@ h1 {
   letter-spacing: -0.01em;
   margin-bottom: 24px;
 }
-h1 em {
-  font-style: italic;
-  color: #c9a86c;
-}
+h1 em { font-style: italic; color: #c9a86c; }
 
 h2 {
   font-family: var(--font-display);
@@ -338,10 +329,7 @@ h3 {
   outline-offset: 3px;
 }
 
-.creator-strip h2 {
-  margin-bottom: 4px;
-  font-size: 1.6rem;
-}
+.creator-strip h2 { margin-bottom: 4px; font-size: 1.6rem; }
 
 .creator-strip > div > p:last-child {
   margin: 0;
@@ -434,9 +422,7 @@ h3 {
   padding: 18px;
 }
 .gift-body > div:first-child { flex: 1; }
-
 .gift-body h3 { font-size: 1.15rem; margin-bottom: 6px; }
-
 .gift-body p {
   color: var(--ink-50);
   font-size: 0.86rem;
@@ -494,14 +480,11 @@ h3 {
   overflow: hidden;
 }
 
-/* decorative geometric accent */
 .surprise-band::before {
   content: '';
   position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 260px;
-  height: 260px;
+  top: -60px; right: -60px;
+  width: 260px; height: 260px;
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 50%;
   pointer-events: none;
@@ -509,10 +492,8 @@ h3 {
 .surprise-band::after {
   content: '';
   position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 160px;
-  height: 160px;
+  top: -20px; right: -20px;
+  width: 160px; height: 160px;
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 50%;
   pointer-events: none;
@@ -646,8 +627,7 @@ legend {
   font-weight: 500;
 }
 .choice input {
-  width: 17px;
-  height: 17px;
+  width: 17px; height: 17px;
   margin-top: 2px;
   accent-color: var(--gold);
 }
@@ -728,8 +708,7 @@ legend {
 .icon-button {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 38px; height: 38px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 3px;
@@ -758,11 +737,7 @@ legend {
   border-radius: var(--r);
 }
 .cart-line strong { font-size: 0.92rem; }
-.cart-line p {
-  margin: 0;
-  color: var(--ink-50);
-  font-size: 0.82rem;
-}
+.cart-line p { margin: 0; color: var(--ink-50); font-size: 0.82rem; }
 .cart-line button {
   align-self: start;
   border: 0;
@@ -841,7 +816,7 @@ legend {
 }
 
 @media (max-width: 640px) {
-  .topbar   { padding: 0 18px; }
+  .topbar    { padding: 0 18px; }
   .nav-links { display: none; }
 
   .hero {
@@ -850,16 +825,272 @@ legend {
     align-items: center;
   }
   .hero::after { display: none; }
-  .hero-copy { padding-bottom: 28px; }
+  .hero-copy   { padding-bottom: 28px; }
   .hero-copy p { font-size: 0.94rem; }
-  h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
+  h1           { font-size: clamp(2.8rem, 12vw, 4rem); }
 
   .creator-strip {
     margin-top: 0;
     width: calc(100% - 32px);
   }
 
-  .wishlist-grid        { grid-template-columns: 1fr; }
-  .form-row.two         { grid-template-columns: 1fr; }
-  .checkout-shell       { padding-top: 60px; }
+  .wishlist-grid  { grid-template-columns: 1fr; }
+  .form-row.two   { grid-template-columns: 1fr; }
+  .checkout-shell { padding-top: 60px; }
+}
+
+/* ═══════════════════════════════════════════
+   CELEBRITY SELECTOR
+═══════════════════════════════════════════ */
+
+.celeb-section {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 72px 0 0;
+}
+
+.celeb-section-inner {
+  width: min(1200px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+/* ── Header row ── */
+.celeb-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.celeb-header h2 { margin-bottom: 6px; }
+
+.celeb-sub {
+  color: var(--ink-50);
+  font-size: 0.92rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* ── Search ── */
+.celeb-search-wrap {
+  flex-shrink: 0;
+}
+
+.celeb-search {
+  width: 260px;
+  padding: 11px 16px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.88rem;
+  outline: 0;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.celeb-search:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+}
+.celeb-search::placeholder { color: var(--ink-50); }
+
+/* ── Category pills ── */
+.celeb-cat-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.celeb-cat-pill {
+  padding: 7px 18px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--ink-50);
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+}
+.celeb-cat-pill:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.celeb-cat-pill.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+/* ── Celebrity grid ── */
+.celeb-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.celeb-empty {
+  grid-column: 1 / -1;
+  padding: 40px;
+  text-align: center;
+  color: var(--ink-50);
+  font-size: 0.92rem;
+}
+
+/* ── Celebrity card ── */
+.celeb-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  transition:
+    border-color 0.22s,
+    box-shadow 0.22s,
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.celeb-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 28px rgba(168, 124, 62, 0.18);
+  transform: translateY(-4px);
+}
+.celeb-card.is-selected {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-glow), 0 12px 36px rgba(168, 124, 62, 0.22);
+  transform: translateY(-4px);
+}
+
+/* ── Card image ── */
+.celeb-card-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+.celeb-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  display: block;
+}
+.celeb-card:hover .celeb-card-img-wrap img,
+.celeb-card.is-selected .celeb-card-img-wrap img {
+  transform: scale(1.06);
+}
+
+/* gradient overlay on image */
+.celeb-card-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(18,16,14,0.55) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ── Checkmark badge ── */
+.celeb-card-check {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.2s, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.celeb-card.is-selected .celeb-card-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Card body ── */
+.celeb-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 12px 14px;
+}
+
+.celeb-card-category {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.celeb-card-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.celeb-card-known {
+  font-size: 0.72rem;
+  color: var(--ink-50);
+  font-weight: 400;
+}
+
+/* ── Celebrity profile strip ── */
+.celeb-profile {
+  display: none;
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+  animation: fadeUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.celeb-profile.is-visible { display: block; }
+
+.celeb-profile-inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+}
+
+.celeb-profile-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: var(--r);
+  object-fit: cover;
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.celeb-profile-info h2 { margin-bottom: 4px; font-size: 1.6rem; }
+.celeb-profile-info p  { margin: 0; color: var(--ink-50); font-size: 0.9rem; font-weight: 300; }
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .celeb-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .celeb-grid   { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .celeb-header { flex-direction: column; align-items: flex-start; }
+  .celeb-search { width: 100%; }
+  .celeb-search-wrap { width: 100%; }
+  .celeb-profile-inner { grid-template-columns: auto 1fr; }
+  .celeb-profile-inner .trust-row { display: none; }
+}
+
+@media (max-width: 480px) {
+  .celeb-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
