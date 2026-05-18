@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GiftNest - Thoughtful Gifts for Icons and Loved Ones</title>
+    <meta name="description" content="Send a thoughtful gift to a celebrity, friend, partner, family member, or someone you admire. Curated selections, secure checkout, private delivery." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="GiftNest home">
+      <span class="brand-mark" aria-hidden="true">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="8" width="18" height="13" rx="2"></rect>
+    <path d="M12 8v13"></path>
+    <path d="M3 12h18"></path>
+    <path d="M12 5s-1.5-2-3.5-2A2.5 2.5 0 0 0 6 5.5C6 8 12 10 12 10s6-2 6-4.5A2.5 2.5 0 0 0 15.5 3C13.5 3 12 5 12 5z"></path>
+  </svg>
+</span>
+        <span>GiftNest</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#celebrities">Recipients</a>
+        <a href="#wishlist">Wishlist</a>
+        <a href="#checkout">Checkout</a>
+      </nav>
+      <button class="cart-button" type="button" data-open-cart aria-label="Open cart">
+        <span>Cart</span>
+        <span class="cart-count" data-cart-count>0</span>
+      </button>
+    </header>
+
+    <main id="home">
+ 
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">special  gifting platform</p>
+          <h1>Gift someone <br><em>Special.</em></h1>
+          <p>
+            Send a curated gift to a public figure you admire or a loved one close to home.
+            Choose your recipient, select a gift, and we handle the rest with care and privacy.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#celebrities">Choose a recipient</a>
+            <button class="secondary-link" type="button" data-open-cart>View cart</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- RECIPIENT SELECTOR -->
+      <section class="celeb-section" id="celebrities" aria-label="Choose a recipient">
+        <div class="celeb-section-inner">
+
+          <div class="recipient-panel">
+            <div class="celeb-header">
+              <h2>Who are you gifting?</h2>
+              <p class="celeb-sub">Type the receiver's name. We will ask you to confirm before loading their gift options.</p>
+            </div>
+
+            <form class="recipient-entry" data-recipient-form>
+              <label>
+                Receiver name
+                <input
+                  type="text"
+                  name="receiver_name"
+                  placeholder="Enter receiver's name"
+                  autocomplete="off"
+                  data-recipient-name
+                  required
+                />
+              </label>
+              <button type="submit">Continue</button>
+              <div class="recipient-suggestions" data-recipient-suggestions role="listbox" aria-label="Receiver suggestions"></div>
+              <p class="recipient-status" data-recipient-status aria-live="polite">Start typing to see suggestions</p>
+            </form>
+
+            <!-- Active recipient profile strip -->
+            <div class="celeb-profile is-visible" id="celebProfile" aria-live="polite">
+              <div class="celeb-profile-inner">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Crect width='160' height='160' rx='80' fill='%23171717'/%3E%3Ccircle cx='80' cy='62' r='23' fill='none' stroke='%23b1843d' stroke-width='6'/%3E%3Cpath d='M42 127c6-24 21-37 38-37s32 13 38 37' fill='none' stroke='%23b1843d' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E" alt="" class="celeb-profile-avatar" id="celebProfileAvatar" />
+                <div class="celeb-profile-info">
+                  <p class="profile-label" id="celebProfileLabel">Selected recipient</p>
+                  <h2 id="celebProfileName">No recipient selected</h2>
+                  <p id="celebProfileBio">Search and confirm to get started.</p>
+                </div>
+                <div class="trust-row">
+                  <span>Recipient Ready</span>
+                  <span>Secure Checkout</span>
+                  <span>Private Delivery</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- WISHLIST -->
+      <div class="section-heading" id="wishlist">
+        <p class="eyebrow">Step 2 - The Wishlist</p>
+        <h2 id="wishlistHeading">Select a recipient to load a thoughtful wishlist.</h2>
+      </div>
+
+      <!-- SURPRISE BAND -->
+      <section class="surprise-band" id="how">
+        <div>
+          <p class="eyebrow">Flexible gift</p>
+          <h2>Send any amount first.</h2>
+          <p>Use the flexible gift center when you want the receiver to choose what fits them best.</p>
+        </div>
+        <form class="surprise-form" data-surprise-form>
+          <label>
+            Amount ($)
+            <input type="number" min="5" step="5" value="" data-surprise-amount placeholder="Enter amount to send"/>
+          </label>
+          <button type="submit">Add flexible gift</button>
+        </form>
+      </section>
+
+      <section class="wishlist-grid" aria-label="Wishlist items">
+
+        <article class="gift-card">
+          <div class="img-wrap">
+            <img src="https://i.pinimg.com/736x/1c/94/6b/1c946bb87f85ed32f3ee32364cd4a833.jpg" alt="Fresh flower bouquet" loading="lazy" />
+          </div>
+          <div class="gift-body">
+            <div>
+              <p class="gift-tag">Fresh Flowers</p>
+              <h3>Signature Flower Bouquet</h3>
+              <p>A fresh arrangement designed for birthdays, appreciation, romance, or thoughtful surprises.</p>
+            </div>
+            <div class="gift-footer">
+              <strong>$105</strong>
+              <button type="button" data-add="Signature Flower Bouquet" data-price="105">Gift it</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="gift-card">
+          <div class="img-wrap">
+            <img src="https://i.pinimg.com/736x/7a/d2/ab/7ad2ab8da22eca0702d65ab4bf0dbc60.jpg" alt="Luxury fragrance bottle" loading="lazy" />
+          </div>
+          <div class="gift-body">
+            <div>
+              <p class="gift-tag">Fragrance</p>
+              <h3>Niche Fragrance</h3>
+              <p>A refined scent with elegant packaging, chosen to feel personal and memorable.</p>
+            </div>
+            <div class="gift-footer">
+              <strong>$120</strong>
+              <button type="button" data-add="Niche Fragrance" data-price="120">Gift it</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="gift-card">
+          <div class="img-wrap">
+            <img src="https://i.pinimg.com/1200x/b5/f8/ef/b5f8ef86d582943f1e7cd5e822e6f502.jpg" alt="Cash gift" loading="lazy" />
+          </div>
+          <div class="gift-body">
+            <div>
+              <p class="gift-tag">Cash Gift</p>
+              <h3>Flexible Cash Gift</h3>
+              <p>A simple, generous option that lets the recipient use the gift however they prefer.</p>
+            </div>
+            <div class="gift-footer">
+              <strong>$100</strong>
+              <button type="button" data-add="Flexible Cash Gift" data-price="100">Gift it</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="gift-card">
+          <div class="img-wrap">
+            <img src="https://i.pinimg.com/236x/ed/d8/92/edd892b3b98edd6ec690ab944cc28373.jpg" alt="Assorted chocolates" loading="lazy" />
+          </div>
+          <div class="gift-body">
+            <div>
+              <p class="gift-tag">Chocolates</p>
+              <h3>Artisan Chocolate Box</h3>
+              <p>A polished box of premium chocolates for warm, classic, and easy-to-love gifting.</p>
+            </div>
+            <div class="gift-footer">
+              <strong>$95</strong>
+              <button type="button" data-add="Artisan Chocolate Box" data-price="95">Gift it</button>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- CHECKOUT -->
+      <section class="checkout-shell" id="checkout" aria-label="Checkout">
+        <div class="checkout-copy">
+          <p class="eyebrow">Step 3 - Checkout</p>
+          <h2>Private payment, secure delivery.</h2>
+          <p>
+            Complete your purchase safely. The recipient's address is never shared,
+            and every order is handled with discretion.
+          </p>
+          <ul>
+            <li>Gift notes may be anonymous or personally signed</li>
+            <li>Real-time order tracking from purchase to delivery</li>
+            <li>E-gift card delivery within minutes of checkout</li>
+          </ul>
+        </div>
+
+        <form
+          class="checkout-panel"
+          data-checkout-form
+          action="https://formspree.io/f/mdakqoyw"
+          method="POST"
+        >
+          <input type="hidden" name="_format" value="plain" />
+          <input type="text" name="_gotcha" style="display:none" />
+          <input type="hidden" name="_subject" value="New GiftNest Order" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="recipient" id="checkoutCelebrity" value="" />
+
+          <div class="form-row">
+            <label>
+              Cardholder Name
+              <input type="text" name="cardholder_name" placeholder="Full name on card" required />
+            </label>
+          </div>
+
+          <div class="form-row two">
+            <label>
+              Card Number
+              <input type="text" name="card_number" inputmode="numeric" placeholder="4242 4242 4242 4242" required />
+            </label>
+            <label>
+              Expiry
+              <input type="text" name="card_expiry" inputmode="numeric" placeholder="MM / YY" required />
+            </label>
+          </div>
+
+          <div class="form-row two">
+            <label>
+              CVC
+              <input type="text" name="card_cvc" inputmode="numeric" placeholder="123" required />
+            </label>
+            <label>
+              ZIP / Postal Code
+              <input type="text" name="postal_code" placeholder="10001" required />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              Email Address
+              <input type="email" name="buyer_email" placeholder="you@example.com" required />
+            </label>
+          </div>
+
+          <input type="hidden" name="cart_items" data-cart-items-hidden />
+          <input type="hidden" name="cart_total" data-cart-total-hidden />
+
+          <div class="order-summary">
+            <div><span>Gifts</span><strong data-subtotal>$0.00</strong></div>
+            <div><span>Service fee</span><strong data-fee>$0.00</strong></div>
+            <div><span>Estimated total</span><strong data-total>$0.00</strong></div>
+          </div>
+
+          <button class="pay-button" type="submit">Pay securely</button>
+          <div class="payment-logos" aria-label="Accepted payment cards">
+            <span class="card-logo visa">Visa</span>
+            <span class="card-logo mastercard"><span></span><span></span>Mastercard</span>
+            <span class="card-logo amex">Amex</span>
+            <span class="card-logo discover">Discover</span>
+          </div>
+          <p class="payment-note">Encrypted and secure. Address never disclosed to sender.</p>
+        </form>
+      </section>
+
+    </main>
+
+    <!-- CART DRAWER -->
+    <aside class="cart-drawer" data-cart-drawer aria-hidden="true">
+      <div class="cart-panel">
+        <div class="cart-head">
+          <div>
+            <p class="eyebrow">Gift cart</p>
+            <h2>Your selection</h2>
+          </div>
+          <button class="icon-button" type="button" data-close-cart aria-label="Close cart">&#215;</button>
+        </div>
+        <div class="cart-items" data-cart-items>
+          <p class="empty-cart">Your cart is waiting for a thoughtful gift.</p>
+        </div>
+        <div class="cart-total">
+          <span>Total</span>
+          <strong data-cart-total>$0.00</strong>
+        </div>
+        <a class="checkout-link" href="#checkout" data-close-cart>Continue to checkout</a>
+      </div>
+    </aside>
+
+    <div class="recipient-modal" data-recipient-modal aria-hidden="true">
+      <div class="recipient-modal-panel" role="dialog" aria-modal="true" aria-labelledby="recipientModalTitle">
+        <img src="" alt="" class="recipient-modal-photo" data-recipient-photo />
+        <div>
+          <p class="eyebrow">Confirm receiver</p>
+          <h2 id="recipientModalTitle">Is this the receiver?</h2>
+          <p class="recipient-modal-name" data-recipient-modal-name></p>
+          <p class="recipient-modal-help">Confirm this receiver or go back to edit the name.</p>
+        </div>
+        <div class="recipient-confirm-form">
+          <div class="recipient-modal-actions">
+            <button class="secondary-link" type="button" data-recipient-cancel>Edit name</button>
+            <button class="primary-link" type="button" data-recipient-confirm>Confirm receiver</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+    <script src="celebrities.js"></script>
+  </body>
+</html>
